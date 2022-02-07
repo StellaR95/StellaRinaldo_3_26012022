@@ -1,0 +1,16 @@
+Dans ce dossier :
+
+- les variables
+- mixins
+- fonctions
+- tout ce qui est utilisable par les autres fichiers
+
+Importer dans l'ordre suivant (dans le main):
+
+1. Variables.
+
+2. Fonctions.
+
+3. Mixins.
+
+4. Placeholders.
