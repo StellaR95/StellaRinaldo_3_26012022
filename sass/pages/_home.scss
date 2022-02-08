@@ -72,23 +72,12 @@ form
     opacity: 0.7;
 }
 
-.location__btn
-{ 
-  font-weight: 700;  
-  width: 50%;
-  padding: 15px;
-  margin: 20px 20px 30px 20px; 
-  border: none;
-  border-radius: 40px;
-  box-shadow: 0px 5px 5px #AEAEAE;
-  background: linear-gradient($secondary-color, $primary-color);
-  color: white;
-}
+
 
 
                     /*F O N C T I O N N E M E N T*/
 
-.step, .restaurant /*propriétés des sections "fonctionnement" et "restaurant"*/
+.step /*propriétés des sections "fonctionnement"*/
 {
     width: 90%;
     margin: auto;
@@ -149,4 +138,67 @@ form
 {
     background-color: lighten($background-color, 5%);
     width: 100%;
+    padding-top: 30px;
+    padding-bottom: 40px;
+}
+
+.restaurant__titre
+{
+   width: 90%; 
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.restaurant__carte
+{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    background-color: white;
+    border-radius: 20px 20px 20px 20px;
+    box-shadow: darken($background-color, 10%) 5px 5px 10px ;
+
+        .carte__img
+        {
+            width: 100%;
+            height: 175px;
+            border-radius: 20px 20px 0px 0px;
+            object-fit:cover;
+            object-position: center;
+        }
+}
+
+.restaurant__carte span
+{
+    position: absolute;  /*permet de faciliter le positionnement de l'étiquette "nouveau"*/
+    object-position: right top;
+    right: 5%; /*positionne l'étiquette à 5% du bord de son contenant*/
+    margin: 10px;
+    padding: 7px 10px;
+    border-radius: 3px;
+    background-color: $tertiary-color;
+    color: darken($tertiary-color, 40%);
+    font-size: 0.9em;
+    font-weight: 700;
+}
+
+.carte__legende
+{
+    width: 90%;
+    padding: 5px;
+    margin: 5px auto 5px auto;
+
+    .carte__titre 
+    { 
+        width: 100%;
+        margin-top: 5px;
+        margin-bottom: 7px;
+    }
+
+    .carte__lieu
+    {
+        margin-top: 5px;
+    }
+
 }
