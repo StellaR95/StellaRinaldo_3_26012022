@@ -1,0 +1,25 @@
+@import url(/public/CSS/normalize.css);
+
+*
+{
+    box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+                    /* M E N U */
+
+.menu__titre
+{
+    font-family: 'Shrikhand', cursive;
+    font-weight: 400;
+}
+
+.entree__titre, .plat__titre, .dessert__titre
+{
+    font-size: 17px;
+    font-weight: 400;
+    border-bottom: solid $tertiary-color;
+}
