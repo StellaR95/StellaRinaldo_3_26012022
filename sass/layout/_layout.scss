@@ -1,0 +1,83 @@
+body
+{
+    width: 100%;
+    margin: auto;
+}
+
+*
+{
+    font-family: 'Roboto';
+}
+
+                    /*M E N U*/
+
+
+
+
+.page-menu
+{
+    background-color: $background-color;
+}
+
+main img
+{
+   width: 100%; 
+}
+
+.menu
+{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px 20px 0px 0px;
+}
+
+.menu__titre
+{
+    margin-right: 0px;
+    display: flex; 
+    justify-content: space-between; /*grâce au display flex ajouté précédemment sur mon bloc, je peut utiliser space-between
+    pour séparer le titre et le coeur*/
+}
+
+                    /*F O O T E R*/
+
+footer
+{
+    height: 200px;
+    background-color: darken($background-color, 70%);
+    color: white;
+
+    .footer__titre
+    {
+        padding: 25px 25px 15px 25px;
+        margin: 0px;
+        font-family: 'Shrikhand', cursive;
+        font-weight: 400;
+        font-size: 1.2em;
+    }
+
+    .footer__list
+    {
+        list-style: none;
+        margin-top: 0px;
+        padding-left: 25px;
+        line-height: 1.5em;
+    }
+
+    .footer__list a
+    {
+        text-decoration: none;
+        color: white;
+    }
+}
+
+.footer__item .fas
+{
+    margin-right: 10px;
+}
+
+
+
+
+

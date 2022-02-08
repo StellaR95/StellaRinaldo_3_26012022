@@ -1,0 +1,10 @@
+Dans ce dossier tout ce qui concerne la mise en page :
+
+-grid
+-flexbox
+-side-bar
+-header, footer, etc.
+-la structuration de la page
+
+- vous mettez vos blocs BEM qui contiennent ce qui est réutilisable, 
+par exemple un header pour les mises en page de grande taille ou un footer ;
