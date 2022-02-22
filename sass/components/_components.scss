@@ -1,27 +1,30 @@
-.header__btn
+.header__link
     {
-        float: left;
+        position: absolute; /*position absolute par rapport au header (dans le layout) qui est en position relative*/
+        display: flex;
         margin-top: 30px;
         margin-left: 20px;
         border: none;
+        color: black;
+        text-decoration: none;
+
+        .fas
+        {
+            font-size: 1.5em;
+        }
     }
 
-.fa-arrow-left
-    {
-        font-size: 1.5em;
-    }
 
-
-    .location__btn
-    { 
-      @include bouton-action;
-      margin: 20px 20px 30px 20px; 
-    }
+.location__btn
+{ 
+    @include bouton-action;
+    margin: 20px 20px 30px 20px; 
+}
 
 
                     /*A C C U E I L */
 
-.carte__btn
+.carte__legende__btn
 {
     width: 10%;
     float: right; 
@@ -30,9 +33,31 @@
     margin-top: 10px;
     border: none;
     background-color: white;
+
+    .fa-heart              
+    {
+        font-weight: 300;
+        transition: all 1s;
+        z-index: 1;
+
+        &:hover
+        {
+            font-weight: 900;
+            -webkit-gradient: $linear-gradient;
+            background-image: $linear-gradient;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+    }
+    
 }
 
                     /* M E N U*/
+
+
+
+
 
 .menu__btn
 {
@@ -43,40 +68,204 @@
     font-size: 1.1em;
     border: none;
     background-color: $background-color;
+
+    .fa-heart               
+    {
+        font-weight: 300;
+        transition: all 1s;
+
+        &:hover
+        {
+            font-weight: 900;
+            -webkit-gradient: $linear-gradient;
+            background-image: $linear-gradient;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+    }
 }
+
+
 
 .entree__btn, .plat__btn, .dessert__btn
 {
-    width: 90%;
-    background-color: white;
-    border: none;
-    border-radius: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 20px;
-    padding-left: 15px;
-    padding-right: 15px;
-    text-align: left;
-    line-height: 10px;
-    font-size: 1em;
-    box-shadow: 0px 5px 5px lighten(#AEAEAE, 20%);
+    @include btn-entree-plat-dessert;
+    position: relative;
+    overflow: hidden;
+
+    h3
+    {
+        height: 25px;
+        margin-top: 10px;
+        margin-bottom: 5px;
+        line-height: normal;
+    }
 
     .accompagnement
     {
        display: flex; 
        justify-content: space-between;
-    }
-
-    .prix
-    {
-        font-weight: 700;
+       height: 17px;
+       line-height: normal;
+       margin-top: 5px;
+       margin-bottom: 10px;
     }
 }
 
-.menu__orderbtn
+
+.entree__btn, .plat__btn, .dessert__btn
 {
-    @include bouton-action;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    align-items:flex-end;
+    
+    .plat__details
+    {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;                /*appliquer une largeur de départ pour réaliser notre animation*/
+        transition: width 0.5s ease-out;
+    }
+    
+    
+    .prix
+    {
+        font-size: 0.9em;
+        font-weight: 700;
+        height: 17px;
+        line-height: normal;
+        margin-top: 5px;
+        margin-bottom: 10px;
+
+    }
+
+    .fond-coche
+    {
+        @include encoche;
+        position: absolute;
+        transform:translateX(100%);
+        transition-property: transform;
+        transition: all 0.5s ease-out;
+
+        .fa-circle-check                  /*Je ne sais pas...*/
+        {
+            position:relative;
+            font-size: 2em;
+            display: flex;
+            justify-content:center;
+            color: white;
+            margin-top: 22px;
+            transition: all 0.5s ease-out;
+        }
+    }
+}
+
+
+.entree__btn, .plat__btn, .dessert__btn
+{
+    &:hover
+    {
+                                                    /*Comment faire tourner l'encoche ?*/
+        .fond-coche
+        {
+            @include encoche;
+            transform: translateX(0%);
+            position: absolute;
+
+            .fa-circle-check                  /*Je ne sais pas...*/
+            {
+                position:relative;
+                font-size: 2em;
+                display: flex;
+                justify-content:center;
+                color: white;
+                margin-top: 22px; 
+                transform: rotate(720deg);               
+            }
+        }
+
+        h3
+        {
+            width: 70%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .plat__details
+        {   
+            width: 70%;
+            
+            .accompagnement    /*ellipsis ne fontionne pas sur les accompagnements...*/
+            {
+                width: 50%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .prix
+            {
+                width: 20%
+            }
+        }
+        
+    }
+}
+
+
+
+/*Apparition progressive*/
+
+
+
+@keyframes fade-1
+{
+    from {
+        display: none;
+        opacity:0;
+
+    }
+    to {
+        display: block;
+        opacity:1;}
+}
+
+.section-entree
+{
+    animation: fade-1 3s;
+}
+
+.section-plat
+{
+    animation: fade-1 3s;
+}
+
+.section-dessert
+{
+    animation: fade-1 3s;
+}
+
+@keyframes btn-up
+{
+    from{margin-top: 30px;}
+    to{margin-top: 0px;}
+}
+
+.plat__all
+{
+    animation: btn-up 3s ease-out;
+}
+        
+
+/*Bouton "commander"*/
+.menu__order
+{
+    display: flex;
+    justify-content: center;
+
+    button
+    {
+        @include bouton-action;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
 }
