@@ -8,6 +8,20 @@
     font-family: 'Roboto', sans-serif;
 }
 
+li, button
+{
+    cursor: pointer;
+}
+
+.step li
+{
+    cursor: auto;
+}
+
+.step__list__item
+{
+    font-weight: 700;
+}
 
                     /* M E N U */
 
@@ -17,9 +31,28 @@
     font-weight: 400;
 }
 
-.entree__titre, .plat__titre, .dessert__titre
+.plat__titre
 {
     font-size: 17px;
     font-weight: 400;
-    border-bottom: solid $tertiary-color;
+
+    &:after             /*soulignement des titres*/
+    {
+        content:'';
+        display: block; /*fait apparaître l'élément*/
+        width: 12%;
+        height: 2px;
+        margin-top: 5px;
+        background-color: $tertiary-color;
+    }
+    
 }
+
+.plat__all
+{
+    .accompagnement
+    {
+        font-size: 0.9em;
+    }
+}
+
