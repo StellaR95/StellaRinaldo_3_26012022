@@ -1,8 +1,9 @@
 @import "./utils/variables";
-
 @import "./utils/_mixins.scss";
 
 @import "./base/base";
+
+@import "./components/_components";
 
 @import "./layout/layout";
 
