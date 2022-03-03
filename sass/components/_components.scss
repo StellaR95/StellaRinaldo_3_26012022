@@ -1,8 +1,12 @@
+/*Tous les éléments de boutons*/
+
+/*F L E C H E  D E  R E T O U R*/
+
 .header__link
     {
         position: absolute; /*position absolute par rapport au header (dans le layout) qui est en position relative*/
         display: flex;
-        margin-top: 30px;
+        margin-top: 10px;
         margin-left: 20px;
         border: none;
         color: black;
@@ -14,7 +18,9 @@
         }
     }
 
+     /*P A G E  A C C U E I L */
 
+/*Bouton "Explorez nos restaurants"*/
 .location__btn
 { 
     @include bouton-action;
@@ -22,13 +28,12 @@
 }
 
 
-                    /*A C C U E I L */
+/*Cartes des restaurants*/                   
 
 .carte__legende__btn
 {
     width: 10%;
     float: right; 
-    font-size: 1.5em;
     padding: 0px;
     margin-top: 10px;
     border: none;
@@ -53,13 +58,10 @@
     
 }
 
-                    /* M E N U*/
+                    /* P A G E  M E N U*/
 
 
-
-
-
-.menu__btn
+.menu__btn  /*coeur favori*/
 {
     width: 20%;
     margin-right: 0px;
@@ -86,13 +88,7 @@
     }
 }
 
-/*TEST ORGANISATION NOUVEAU BOUTON PLAT*/ /*<!--ATTENTION JE TRAVAILLE SUR LA BRANCHE GIT "PLAT"!-->*/
-
-
-
-
-/*TEST ORGANISATION NOUVEAU BOUTON PLAT*/
-
+/*Boutons des entrées, plats et desserts*/
 
 .entree__btn, .plat__btn, .dessert__btn
 {
@@ -102,15 +98,15 @@
 
     h3
     {
-        height: 25px;
+        
+        height: 20px;
         margin-top: 10px;
         margin-bottom: 5px;
-        line-height: normal;
+        
     }
 
     .plat__accompagnement
     {
-       line-height: normal;
        margin-top: 5px;
        margin-bottom: 10px;
     }
@@ -127,18 +123,11 @@
         width: 100%;                /*appliquer une largeur de départ pour réaliser notre animation*/
         transition: width 0.5s ease-out;
 
-        .plat__accompagnement
-        {
-            line-height: normal;
-        }
     }
     
     
     .plat__prix
     {
-        font-size: 0.9em;
-        font-weight: 700;
-        line-height: normal;
         margin-top: auto;
         margin-bottom: 10px;
         transition: all 0.5s ease-out;
@@ -184,7 +173,7 @@
                 display: flex;
                 justify-content:center;
                 color: white;
-                margin-top: 22px; 
+                margin-top: 15px; 
                 transform: rotate(720deg);               
             }
         }
@@ -194,9 +183,11 @@
         .plat__etdetails
         {   
             
+            width: 70%;
+
             h3, p
             {
-                width: 70%;
+                width: 90%;
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
@@ -207,7 +198,7 @@
 
         .plat__prix
         {
-            margin-right: 20%;
+            margin-right: 20%;    /*!le prix est coupé lors du survol en version mobile!*/
         }
         
     }
@@ -222,12 +213,10 @@
 @keyframes fade-1    
 {
     from {
-        display: none;
         opacity:0;
 
     }
     to {
-        display: block;
         opacity:1;}
 }
 
@@ -235,17 +224,22 @@
 
 .section-entree
 {
-    animation: fade-1 3s;
+    animation: fade-1 3s;    /*probleme d'animation-delay*/
 }
 
 .section-plat
 {
+    
     animation: fade-1 3s;
+    animation-fill-mode:backwards;
+    animation-delay: 1s;
 }
 
 .section-dessert
 {
     animation: fade-1 3s;
+    animation-fill-mode:backwards;
+    animation-delay: 2s;
 }
 
 /*mise en place de la keyframe de decalage progressif vers le haut*/
