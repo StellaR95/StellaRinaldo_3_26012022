@@ -8,6 +8,8 @@
     font-family: 'Roboto', sans-serif;
 }
 
+/*Souris*/
+
 li, button
 {
     cursor: pointer;
@@ -18,12 +20,60 @@ li, button
     cursor: auto;
 }
 
+/*P A G E  A C C U E I L*/
+
+form input
+{
+    font-weight: 700;
+    font-size: 1.1em; 
+}
+
+.location__phrase
+{
+    font-size: 1em;
+}
+
 .step__list__item
 {
     font-weight: 700;
 }
 
-                    /* M E N U */
+.restaurant__carte span
+{
+    font-size: 0.9em;
+    font-weight: 700;
+}
+
+
+
+.carte__legende__btn
+{
+    font-size: 1.5em;
+}
+                    /*P A G E  M E N U */
+
+.entree__btn, .plat__btn, .dessert__btn
+{
+    h3
+    {
+        font-size: 1.1em;
+        line-height: normal;
+    }
+
+    .plat_accompagnement
+    {
+        font-size: 0.9em;
+        line-height: normal;
+    }
+
+    .plat__prix
+    {
+        font-size: 0.9em;
+        font-weight: 700;
+        line-height: normal; 
+    }
+}
+
 
 .menu__titre
 {
@@ -56,3 +106,10 @@ li, button
     }
 }
 
+
+.footer__titre
+{
+    font-family: 'Shrikhand', cursive;
+    font-weight: 400;
+    font-size: 1.2em; 
+}
