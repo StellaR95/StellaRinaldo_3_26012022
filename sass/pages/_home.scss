@@ -1,6 +1,75 @@
+/*Page à la mise en page spécifique*/
+
 *
 {
     font-family: 'Roboto', sans-serif;
+}
+
+
+/*faire apparaître/disparaître le loader*/
+
+@keyframes load-page
+{
+   0%{z-index: 0;} 
+   95%{z-index: 3;}
+   100%{z-index: -1;}
+}
+
+.load-page /*page blanchie lors du chargement*/
+{
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    opacity: 0.5;
+    position: fixed;
+    top:0;
+    animation: load-page 2s;
+    animation-fill-mode: forwards;
+}
+
+.content-loader
+{
+    @include loader;
+    display: flex;
+    justify-content: center;
+    align-items: center;  /*align-items va aligner verticalement alors que justify-content va aligner horizontalement*/
+}
+
+
+.loader
+{
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid $primary-color;
+    border-left: 5px solid lighten($primary-color, 20%);
+    border-bottom: 5px solid lighten($primary-color, 20%);
+    border-right: 5px solid lighten($primary-color, 20%);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+
+/*keyframe inclu dans la mixin du loader*/
+
+@keyframes spin 
+{
+    0%{
+        transform: rotate(0deg);
+        opacity: 0;
+        z-index: -1;
+    }
+
+    95%{opacity:1;
+        z-index: 6;            } /*pour que la disparition à 100% soit plus directe et non progressive*/
+
+    100%{
+        transform: rotate(720deg);  /*pour qu'il tourne plus vite mais toujours pendant 3 secondes*/
+        opacity:0;
+        z-index: -1;
+    }
+
+    from {opacity: 1;}
+    to {opacity: 0;}
 }
 
 
@@ -16,6 +85,12 @@ header
     {
         width: 50%;
         margin: 30px 10px 10px 10px;
+        display:none;
+    }
+
+    h1{
+        font-family: Shrikhand, cursive;
+        margin: 20px 10px 10px 10px;
     }
 }
 
@@ -34,12 +109,10 @@ form
         width: 45%;
         background-color: $background-color; 
         border: none;
-        font-weight: 700;
-        font-size: 1.1em;
         opacity: 0.8;
     }
 
-    .fa-map-marker-alt
+    .fas
     {
         font-size: 1.2em;
         opacity: 0.8;
@@ -54,24 +127,23 @@ form
     text-align: center;
     background-color: lighten($background-color, 5%);
     padding-bottom: 40px;
-}
 
-.location__titre
-{
-    margin-top: 50px;
-    width: 70%;
-    @include intro-accueil;
-    @include titres-accueil;
-}
+    &__titre
+    {
+        margin-top: 50px;
+        width: 70%;
+        @include intro-accueil;
+        @include titres-accueil;
+    }
 
-.location__phrase
-{
-    @include intro-accueil;
-    width: 80%;
-    font-size: 1em;
-    opacity: 0.7;
+    &__phrase
+    {
+        @include intro-accueil;
+        width: 80%;
+        opacity: 0.7;
+    }
+    
 }
-
 
 
 
@@ -80,30 +152,37 @@ form
 .step /*propriétés des sections "fonctionnement"*/
 {
     width: 90%;
-    margin: auto;
+    margin-right: auto;
+    margin-left: auto;
     padding-top: 30px;
     padding-bottom: 40px;
+
+    &__list
+    {
+        list-style: none; /*On retire les puces numérotées par défaut pour en générer de nouveaux, plus faciles à styliser*/
+        padding-left: 0px; /*On retire le padding présent sur la gauche, afin que "fontionnement" soit aligné avec les éléments de la liste*/
+        text-align: center;
+        counter-reset: li; /*On initialise le compteur à 0*/
+    }
+
 }
 
-.step__list
-{
-    list-style: none; /*On retire les puces numérotées par défaut pour en générer de nouveaux, plus faciles à styliser*/
-    padding-left: 0px; /*On retire le padding présent sur la gauche, afin que "fontionnement" soit aligné avec les éléments de la liste*/
-    counter-reset: li; /*On initialise le compteur à 0*/
-}
-
-.step__item
+.step__list__item
 {
     counter-increment: step-counter; /*Incrémenter: augmente la valeur d'un compteur CSS, d'une valeur donnée. 
                                         Ici, le compteur se nomme "étape"*/
-    width: 90%;
+    width: 75%;
+    display: flex;
+    align-items:center;
+    justify-content: space-evenly;
     margin-bottom: 20px;            /*espacement entre chaque élément de la liste*/
-    margin-left: auto;              /*Centre les éléments dans la page*/
     margin-right: auto;
-    padding: 20px;
+    margin-left: auto;
+    padding: 25px;
     border-radius: 20px;
     background-color: lighten($background-color, 5%);
     box-shadow: darken($background-color, 10%) 5px 5px 10px;
+    position: relative;
 
     &::before                           /*l'esperluette "&", permet de spécifier l'application du style sur le premier élément enfant*/
     {
@@ -113,24 +192,27 @@ form
         padding: 5px 10px;
         margin-right: 20px;
         border-radius: 20px;
+        position: absolute;
+        left: -15px;
+
     }
 }
 
-.step__item .fas
+.step__list__item .fas
 {
-    margin-right: 20px;
     color: lighten(black, 50%);
 }
 
-.step__item.--active
+.step__list__item.--active
 {
     background-color: lighten($primary-color, 35%);
+
+    .fas
+    {
+        color: $primary-color;
+    }
 }
 
-.fas.fa-store.--active
-{
-    color: $primary-color;
-}
 
                     /*R E S T A U R A N T S*/
 
@@ -140,13 +222,14 @@ form
     width: 100%;
     padding-top: 30px;
     padding-bottom: 40px;
-}
 
-.restaurant__titre
-{
-   width: 90%; 
-   margin-left: auto;
-   margin-right: auto;
+    &__titre
+    {
+    width: 90%; 
+    margin-left: auto;
+    margin-right: auto;
+    }
+
 }
 
 .restaurant__carte
@@ -159,7 +242,7 @@ form
     border-radius: 20px 20px 20px 20px;
     box-shadow: darken($background-color, 10%) 5px 5px 10px ;
 
-        .carte__img
+        &__img
         {
             width: 100%;
             height: 175px;
@@ -167,21 +250,27 @@ form
             object-fit:cover;
             object-position: center;
         }
+
+        span
+    {
+        position: absolute;  /*permet de faciliter le positionnement de l'étiquette "nouveau"*/
+        object-position: right top;
+        right: 5%; /*positionne l'étiquette à 5% du bord de son contenant*/
+        margin: 10px;
+        padding: 7px 10px;
+        border-radius: 3px;
+        background-color: $tertiary-color;
+        color: darken($tertiary-color, 40%);
+    }
+
+    a
+    {
+        color: black;
+        text-decoration: none;
+    }
 }
 
-.restaurant__carte span
-{
-    position: absolute;  /*permet de faciliter le positionnement de l'étiquette "nouveau"*/
-    object-position: right top;
-    right: 5%; /*positionne l'étiquette à 5% du bord de son contenant*/
-    margin: 10px;
-    padding: 7px 10px;
-    border-radius: 3px;
-    background-color: $tertiary-color;
-    color: darken($tertiary-color, 40%);
-    font-size: 0.9em;
-    font-weight: 700;
-}
+
 
 .carte__legende
 {
@@ -189,14 +278,14 @@ form
     padding: 5px;
     margin: 5px auto 5px auto;
 
-    .carte__titre 
+    &__titre 
     { 
         width: 100%;
         margin-top: 5px;
         margin-bottom: 7px;
     }
 
-    .carte__lieu
+    &__lieu
     {
         margin-top: 5px;
     }
