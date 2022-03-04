@@ -1,17 +1,22 @@
+/*Tous les éléments de mise en page*/
+
+/*V E R S I O N  M O B I L E */
+
 body
 {
     width: 100%;
     margin: auto;
 }
 
-*
+
+header
 {
-    font-family: 'Roboto';
+    position: relative;
 }
 
+
+
                     /*M E N U*/
-
-
 
 
 .page-menu
@@ -21,26 +26,43 @@ body
 
 main img
 {
-   width: 100%; 
+   width: 100%;
+   height: 275px;
+   object-fit: cover;
 }
 
 .menu
 {
-    width: 90%;
+    position: relative;
+    z-index: 1; /*place l'élément menu par-dessus le premier élément qui se trouve devant lui: ici c'est l'image*/
+    width: 99.7%; /*à 100%, une barre de défilement horizontale apparaît en bas de page*/
+    margin-top: -50px; /*permet de remonter un élément*/
     margin-left: auto;
     margin-right: auto;
-    border-radius: 20px 20px 0px 0px;
+    border-radius: 40px 40px 0px 0px;
+    background-color: $background-color;
+    border: $background-color solid; /*l'effet de superposition semble fonctionner qu'avec une bordure définie*/
 }
 
 .menu__titre
 {
-    margin-right: 0px;
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
     display: flex; 
     justify-content: space-between; /*grâce au display flex ajouté précédemment sur mon bloc, je peut utiliser space-between
     pour séparer le titre et le coeur*/
 }
 
+.plat
+{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
                     /*F O O T E R*/
+
 
 footer
 {
@@ -52,9 +74,6 @@ footer
     {
         padding: 25px 25px 15px 25px;
         margin: 0px;
-        font-family: 'Shrikhand', cursive;
-        font-weight: 400;
-        font-size: 1.2em;
     }
 
     .footer__list
@@ -65,19 +84,232 @@ footer
         line-height: 1.5em;
     }
 
-    .footer__list a
+    .footer__list__item a
     {
         text-decoration: none;
         color: white;
     }
 }
 
-.footer__item .fas
+.footer__list__item .fas
 {
     margin-right: 10px;
 }
 
 
+/*V E R S I O N  T A B L E T T E*/
+
+@media screen and (min-width: 768px) and (max-width: 1024px)
+{
+    /*Page d'accueil*/
+    
+    header h1
+    {
+        font-size: 2.5em;
+    }
+    
+    input
+    {
+      text-align: center;
+      max-width: 22%;
+    }
+
+    .location__btn /*bouton explorez*/
+    {
+        max-width: 25%;
+    }
+
+    .step
+    {
+        max-width: 70%;
+    }
+
+    .restaurant__titre, .restaurant__carte
+    {
+        max-width: 70%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    
+
+    /*page de menu*/
+
+    main img 
+    {
+        height: 400px;
+    }
+
+    .menu__titre
+    {
+        width: 75%;
+    }
+
+    .section-entree, .section-plat, .section-dessert
+    {
+        width: 80%;
+    }
+
+    .plat__titre
+    {
+        width: 95%;
+        margin-right: auto;
+        margin-left: auto;
+
+        &:after
+        {
+            width:5%;
+        }
+    }
+
+    .menu__order button
+    {
+        width: 25%;
+    }
+}
 
 
+/*V E R S I O N  P C*/
 
+@media screen and (min-width: 1025px) and (max-width: 3840px)
+{
+    /*page d'accueil*/
+
+    
+    header h1
+    {
+        font-size: 2.5em;
+    }
+
+    input
+    {
+        text-align: center;
+        max-width: 10%;
+    }
+
+    .location__titre
+    {
+        max-width: 400px;
+        margin-top: 20px; /*ne fonctionne pas*/
+    }
+
+    .location__btn /*bouton explorez*/
+    {
+        max-width: 200px;
+        font-size: 1em;
+    }
+
+    .step
+    {
+        max-width: 1500px;
+        padding: 0px;
+
+    }
+
+    .step__titre
+    {
+        max-width: 200px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 50px;
+        text-align: center;
+    }
+
+    .step__list
+    {
+        width: 1200px;
+        display: flex;
+        justify-content: space-between;
+        margin-left: auto;
+        margin-right: auto;
+            
+        .step__list__item
+        {
+            width: 264px;
+        }
+    }
+
+        
+
+    .restaurant__all
+    {
+        max-width: 1400px;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+
+    }
+
+    .restaurant__carte
+    {
+        max-width: 300px;
+        margin-bottom: 50px;
+    }
+
+
+    .restaurant__titre
+    {
+        max-width: 50%;
+        margin-bottom: 50px;
+        text-align: center;
+    }
+
+
+    
+    
+    
+    /*page de menu*/
+
+    header h1
+    {
+        font-size: 4em;
+    }
+
+    .header__link
+    {
+        margin-top: 25px;
+        margin-left: 4%;
+        font-size: 1.5em;
+    }
+
+    main img
+    {
+        height: 350px;
+    }
+
+    .menu__titre
+    {
+        width: 47%;
+        font-size: 2.5em;
+        text-align: center;
+
+        .fa-heart
+        {
+            font-size: 0.6em;
+            margin-top: 15px;
+        }
+    }
+
+    .section-entree, .section-plat, .section-dessert
+    {
+        width: 50%;
+    }
+
+    .plat__titre
+    {
+        width: 93%;
+        margin-right: auto;
+        margin-left: auto;
+
+        &:after
+        {
+            width:5%;
+        }
+    }
+
+    .menu__order button
+    {
+        width: 10%;
+        font-size: 1em;
+    }
+}
