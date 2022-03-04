@@ -241,6 +241,7 @@ form
     background-color: white;
     border-radius: 20px 20px 20px 20px;
     box-shadow: darken($background-color, 10%) 5px 5px 10px ;
+    position: relative;
 
         &__img
         {
@@ -254,8 +255,8 @@ form
         span
     {
         position: absolute;  /*permet de faciliter le positionnement de l'étiquette "nouveau"*/
-        object-position: right top;
-        right: 5%; /*positionne l'étiquette à 5% du bord de son contenant*/
+        top: 1%;
+        right: 1%; /*positionne l'étiquette à 5% du bord de son contenant*/
         margin: 10px;
         padding: 7px 10px;
         border-radius: 3px;
