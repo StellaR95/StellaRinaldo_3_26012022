@@ -1,2 +1,0 @@
-RewriteEngine On
-RewriteRule ^ancien/(.*)$ http://https://stellarinaldo.github.io/StellaRinaldo_3_26012022/public/$1 [R=301,L]
