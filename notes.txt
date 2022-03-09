@@ -1,0 +1,73 @@
+Importer les dossiers sass dans l'ordre suivant :
+
+1. Utils :
+
+	- Variables.(commencent par $ et servent à regrouper sous une même appelation des valeurs répétées dans le code
+	(couleurs, pourcentages, mesures, etc)
+	Au lieu de mettre le code couleur #000000 on l'enregistrera sous l'appelation $color-primary : #000000 et on l'appellera
+	dès qu'on en aura besoin de la manière suivante : color : $primary_color.)
+
+	- Fonctions : permettent d'apporter des nuances aux mixins, sans changer leur base 
+	(assombrir/éclaircir/intensifier/désaturer une couleur, ajouter de l'opacité
+
+	- Mixins : comme les variables mais pour les propriétés et non les valeurs: 
+
+	@mixin mixin-name {
+  	css-property: value;
+	} 
+
+	- Placeholders.
+
+2. Feuilles de style de tiers (vendors) (si vous en avez).
+
+3. Base.
+
+4. Composants.
+
+5. Layout.
+
+6. Pages.
+
+7. Thèmes.
+
+Une fois que l’ensemble du code a bien été séparé en partiels et importé, le fichier main.scss ne doit contenir que des imports. 
+Les ensembles de règles sont eux aussi rangés dans leurs propres partiels. 
+
+
+sass/
+|
+|– utils
+|   |– _variables.scss    # Sass Variables
+|   |– _mixins.scss       # Sass Mixins
+|
+|– vendors/
+|   |– _bootstrap.scss    # Bootstrap
+|
+|– base/
+|   |– _reset.scss        # Reset/normalize
+|   |– _typography.scss   # Typography rules
+|   |– _box-sizing
+
+|– layout/
+|   |– _navigation.scss   # Navigation
+|   |– _grid.scss         # Grid system
+|   |– _header.scss       # Header
+|   |– _footer.scss       # Footer
+|   |– _sidebar.scss      # Sidebar
+|   |– _forms.scss        # Forms
+|
+|– components/
+|   |– _buttons.scss      # Buttons
+|   |– _carousel.scss     # Carousel
+|   |– _cover.scss        # Cover
+|   |– _dropdown.scss     # Dropdown
+|
+|– pages/
+|   |– _home.scss         # Home specific styles
+|   |– _contact.scss      # Contact specific styles
+|
+|– themes/
+|   |– _theme.scss        # Default theme
+|   |– _admin.scss        # Admin theme
+|
+

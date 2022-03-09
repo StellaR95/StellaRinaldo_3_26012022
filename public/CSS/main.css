@@ -1,0 +1,829 @@
+@charset "UTF-8";
+/*Création des propriétés raccourcies pour éviter les répétitions à rallonge*/
+@import url(/public/CSS/normalize.css);
+* {
+  box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  font-family: "Roboto", sans-serif;
+}
+
+/*Souris*/
+li, button {
+  cursor: pointer;
+}
+
+.step li {
+  cursor: auto;
+}
+
+/*P A G E  A C C U E I L*/
+form input {
+  font-weight: 700;
+  font-size: 1.1em;
+}
+
+.location__phrase {
+  font-size: 1em;
+}
+
+.step__list__item {
+  font-weight: 700;
+}
+
+.restaurant__carte span {
+  font-size: 0.9em;
+  font-weight: 700;
+}
+
+.carte__legende__btn {
+  font-size: 1.5em;
+}
+
+/*P A G E  M E N U */
+.entree__btn h3, .plat__btn h3, .dessert__btn h3 {
+  font-size: 1.1em;
+  line-height: normal;
+}
+.entree__btn .plat_accompagnement, .plat__btn .plat_accompagnement, .dessert__btn .plat_accompagnement {
+  font-size: 0.9em;
+  line-height: normal;
+}
+.entree__btn .plat__prix, .plat__btn .plat__prix, .dessert__btn .plat__prix {
+  font-size: 0.9em;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.menu__titre {
+  font-family: "Shrikhand", cursive;
+  font-weight: 400;
+}
+
+.plat__titre {
+  font-size: 17px;
+  font-weight: 400;
+}
+.plat__titre:after {
+  content: "";
+  display: block;
+  /*fait apparaître l'élément*/
+  width: 12%;
+  height: 2px;
+  margin-top: 5px;
+  background-color: #99E2D0;
+}
+
+.plat__all .accompagnement {
+  font-size: 0.9em;
+}
+
+.footer__titre {
+  font-family: "Shrikhand", cursive;
+  font-weight: 400;
+  font-size: 1.2em;
+}
+
+/*Tous les éléments de boutons*/
+/*F L E C H E  D E  R E T O U R*/
+.header__link {
+  position: absolute;
+  /*position absolute par rapport au header (dans le layout) qui est en position relative*/
+  display: flex;
+  margin-top: 10px;
+  margin-left: 20px;
+  border: none;
+  color: black;
+  text-decoration: none;
+}
+.header__link .fas {
+  font-size: 1.5em;
+}
+
+/*P A G E  A C C U E I L */
+/*Bouton "Explorez nos restaurants"*/
+.location__btn {
+  font-weight: 400;
+  width: 50%;
+  padding: 15px;
+  border: none;
+  border-radius: 40px;
+  box-shadow: 0px 5px 5px #AEAEAE;
+  background: linear-gradient(#FF79DA, #9356DC);
+  color: white;
+  margin: 20px 20px 30px 20px;
+}
+.location__btn:hover {
+  opacity: 0.9;
+  box-shadow: 0px 5px 5px #888888;
+}
+
+/*Cartes des restaurants*/
+.carte__legende__btn {
+  width: 10%;
+  float: right;
+  padding: 0px;
+  margin-top: 10px;
+  border: none;
+  background-color: white;
+}
+.carte__legende__btn .fa-heart {
+  font-weight: 300;
+  transition: all 1s;
+  z-index: 1;
+}
+.carte__legende__btn .fa-heart:hover {
+  font-weight: 900;
+  -webkit-gradient: linear-gradient(#FF79DA, #9356DC);
+  background-image: linear-gradient(#FF79DA, #9356DC);
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* P A G E  M E N U*/
+.menu__btn {
+  width: 20%;
+  margin-right: 0px;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 1.1em;
+  border: none;
+  background-color: #EAEAEA;
+}
+.menu__btn .fa-heart {
+  font-weight: 300;
+  transition: all 1s;
+}
+.menu__btn .fa-heart:hover {
+  font-weight: 900;
+  -webkit-gradient: linear-gradient(#FF79DA, #9356DC);
+  background-image: linear-gradient(#FF79DA, #9356DC);
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/*Boutons des entrées, plats et desserts*/
+.entree__btn, .plat__btn, .dessert__btn {
+  width: 90%;
+  background-color: white;
+  border: none;
+  border-radius: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: left;
+  font-size: 1em;
+  box-shadow: 0px 5px 5px #e1e1e1;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+.entree__btn h3, .plat__btn h3, .dessert__btn h3 {
+  height: 20px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+.entree__btn .plat__accompagnement, .plat__btn .plat__accompagnement, .dessert__btn .plat__accompagnement {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.entree__btn .plat__details, .plat__btn .plat__details, .dessert__btn .plat__details {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  /*appliquer une largeur de départ pour réaliser notre animation*/
+  transition: width 0.5s ease-out;
+}
+.entree__btn .plat__prix, .plat__btn .plat__prix, .dessert__btn .plat__prix {
+  margin-top: auto;
+  margin-bottom: 10px;
+  transition: all 0.5s ease-out;
+}
+.entree__btn .fond-coche, .plat__btn .fond-coche, .dessert__btn .fond-coche {
+  height: 100%;
+  width: 20%;
+  border-radius: 0px 20px 20px 0px;
+  position: absolute;
+  left: 80%;
+  top: 0%;
+  background-color: #99E2D0;
+  position: absolute;
+  transform: translateX(100%);
+  transition-property: transform;
+  transition: all 0.5s ease-out;
+}
+.entree__btn .fond-coche .fa-circle-check, .plat__btn .fond-coche .fa-circle-check, .dessert__btn .fond-coche .fa-circle-check {
+  position: relative;
+  font-size: 2em;
+  display: flex;
+  justify-content: center;
+  color: white;
+  margin-top: 22px;
+  transition: all 0.5s ease-out;
+}
+
+.entree__btn:hover, .plat__btn:hover, .dessert__btn:hover {
+  /*Comment faire tourner l'encoche ?*/
+}
+.entree__btn:hover .fond-coche, .plat__btn:hover .fond-coche, .dessert__btn:hover .fond-coche {
+  height: 100%;
+  width: 20%;
+  border-radius: 0px 20px 20px 0px;
+  position: absolute;
+  left: 80%;
+  top: 0%;
+  background-color: #99E2D0;
+  transform: translateX(0%);
+  position: absolute;
+}
+.entree__btn:hover .fond-coche .fa-circle-check, .plat__btn:hover .fond-coche .fa-circle-check, .dessert__btn:hover .fond-coche .fa-circle-check {
+  position: relative;
+  font-size: 2em;
+  display: flex;
+  justify-content: center;
+  color: white;
+  margin-top: 15px;
+  transform: rotate(720deg);
+}
+.entree__btn:hover .plat__etdetails, .plat__btn:hover .plat__etdetails, .dessert__btn:hover .plat__etdetails {
+  width: 70%;
+  /*ellipsis ne fontionne pas sur les accompagnements...*/
+}
+.entree__btn:hover .plat__etdetails h3, .entree__btn:hover .plat__etdetails p, .plat__btn:hover .plat__etdetails h3, .plat__btn:hover .plat__etdetails p, .dessert__btn:hover .plat__etdetails h3, .dessert__btn:hover .plat__etdetails p {
+  width: 90%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.entree__btn:hover .plat__prix, .plat__btn:hover .plat__prix, .dessert__btn:hover .plat__prix {
+  margin-right: 20%;
+  /*!le prix est coupé lors du survol en version mobile!*/
+}
+
+/*Apparition progressive des plats*/
+/*création de la keyframe d'apparition progressive*/
+@keyframes fade-1 {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/*mise en place de la keyframe créée sur les éléments souhaités*/
+.section-entree {
+  animation: fade-1 3s;
+  /*probleme d'animation-delay*/
+}
+
+.section-plat {
+  animation: fade-1 3s;
+  animation-fill-mode: backwards;
+  animation-delay: 1s;
+}
+
+.section-dessert {
+  animation: fade-1 3s;
+  animation-fill-mode: backwards;
+  animation-delay: 2s;
+}
+
+/*mise en place de la keyframe de decalage progressif vers le haut*/
+@keyframes btn-up {
+  from {
+    margin-top: 30px;
+  }
+  to {
+    margin-top: 0px;
+  }
+}
+/*mise en place de cette keyframe sur les elements souhaités*/
+.plat__all {
+  animation: btn-up 3s ease-out;
+}
+
+/*Bouton "commander"*/
+.menu__order {
+  display: flex;
+  justify-content: center;
+}
+.menu__order button {
+  font-weight: 400;
+  width: 50%;
+  padding: 15px;
+  border: none;
+  border-radius: 40px;
+  box-shadow: 0px 5px 5px #AEAEAE;
+  background: linear-gradient(#FF79DA, #9356DC);
+  color: white;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.menu__order button:hover {
+  opacity: 0.9;
+  box-shadow: 0px 5px 5px #888888;
+}
+
+/*Tous les éléments de mise en page*/
+/*V E R S I O N  M O B I L E */
+body {
+  width: 100%;
+  margin: auto;
+}
+
+header {
+  position: relative;
+}
+
+/*M E N U*/
+.page-menu {
+  background-color: #EAEAEA;
+}
+
+main img {
+  width: 100%;
+  height: 275px;
+  object-fit: cover;
+}
+
+.menu {
+  position: relative;
+  z-index: 1;
+  /*place l'élément menu par-dessus le premier élément qui se trouve devant lui: ici c'est l'image*/
+  width: 99.7%;
+  /*à 100%, une barre de défilement horizontale apparaît en bas de page*/
+  margin-top: -50px;
+  /*permet de remonter un élément*/
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 40px 40px 0px 0px;
+  background-color: #EAEAEA;
+  border: #EAEAEA solid;
+  /*l'effet de superposition semble fonctionner qu'avec une bordure définie*/
+}
+
+.menu__titre {
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  justify-content: space-between;
+  /*grâce au display flex ajouté précédemment sur mon bloc, je peut utiliser space-between
+  pour séparer le titre et le coeur*/
+}
+
+.plat {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*F O O T E R*/
+footer {
+  height: 200px;
+  background-color: #383838;
+  color: white;
+}
+footer .footer__titre {
+  padding: 25px 25px 15px 25px;
+  margin: 0px;
+}
+footer .footer__list {
+  list-style: none;
+  margin-top: 0px;
+  padding-left: 25px;
+  line-height: 1.5em;
+}
+footer .footer__list__item a {
+  text-decoration: none;
+  color: white;
+}
+
+.footer__list__item .fas {
+  margin-right: 10px;
+}
+
+/*V E R S I O N  T A B L E T T E*/
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  /*Page d'accueil*/
+  header h1 {
+    font-size: 2.5em;
+  }
+
+  input {
+    text-align: center;
+    max-width: 22%;
+  }
+
+  .location__btn {
+    max-width: 25%;
+  }
+
+  .step {
+    max-width: 70%;
+  }
+
+  .restaurant__titre, .restaurant__carte {
+    max-width: 70%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  /*page de menu*/
+  main img {
+    height: 400px;
+  }
+
+  .menu__titre {
+    width: 75%;
+  }
+
+  .section-entree, .section-plat, .section-dessert {
+    width: 80%;
+  }
+
+  .plat__titre {
+    width: 95%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .plat__titre:after {
+    width: 5%;
+  }
+
+  .menu__order button {
+    width: 25%;
+  }
+}
+/*V E R S I O N  P C*/
+@media screen and (min-width: 1025px) and (max-width: 3840px) {
+  /*page d'accueil*/
+  header h1 {
+    font-size: 2.5em;
+  }
+
+  input {
+    text-align: center;
+    max-width: 10%;
+  }
+
+  .location__titre {
+    max-width: 400px;
+    margin-top: 20px;
+    /*ne fonctionne pas*/
+  }
+
+  .location__btn {
+    max-width: 200px;
+    font-size: 1em;
+  }
+
+  .step {
+    max-width: 1500px;
+    padding: 0px;
+  }
+
+  .step__titre {
+    max-width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    text-align: center;
+  }
+
+  .step__list {
+    width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .step__list .step__list__item {
+    width: 264px;
+  }
+
+  .restaurant__all {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+  }
+
+  .restaurant__carte {
+    max-width: 300px;
+    margin-bottom: 50px;
+  }
+
+  .restaurant__titre {
+    max-width: 50%;
+    margin-bottom: 50px;
+    text-align: center;
+  }
+
+  /*page de menu*/
+  header h1 {
+    font-size: 4em;
+  }
+
+  .header__link {
+    margin-top: 25px;
+    margin-left: 4%;
+    font-size: 1.5em;
+  }
+
+  main img {
+    height: 350px;
+  }
+
+  .menu__titre {
+    width: 47%;
+    font-size: 2.5em;
+    text-align: center;
+  }
+  .menu__titre .fa-heart {
+    font-size: 0.6em;
+    margin-top: 15px;
+  }
+
+  .section-entree, .section-plat, .section-dessert {
+    width: 50%;
+  }
+
+  .plat__titre {
+    width: 93%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .plat__titre:after {
+    width: 5%;
+  }
+
+  .menu__order button {
+    width: 10%;
+    font-size: 1em;
+  }
+}
+/*Page à la mise en page spécifique*/
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+/*faire apparaître/disparaître le loader*/
+@keyframes load-page {
+  0% {
+    z-index: 0;
+  }
+  95% {
+    z-index: 3;
+  }
+  100% {
+    z-index: -1;
+  }
+}
+.load-page {
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  opacity: 0.5;
+  position: fixed;
+  top: 0;
+  animation: load-page 2s;
+  animation-fill-mode: forwards;
+}
+
+.content-loader {
+  /*placement loader milieu page*/
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  /*permet de fixer l'élément sur toute la page (peut importe si l'on scroll)*/
+  top: 0;
+  animation: spin 2s;
+  animation-fill-mode: forwards;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*align-items va aligner verticalement alors que justify-content va aligner horizontalement*/
+}
+
+.loader {
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #9356DC;
+  border-left: 5px solid #c9abee;
+  border-bottom: 5px solid #c9abee;
+  border-right: 5px solid #c9abee;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+}
+
+/*keyframe inclu dans la mixin du loader*/
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+    opacity: 0;
+    z-index: -1;
+  }
+  95% {
+    opacity: 1;
+    z-index: 6;
+  }
+  /*pour que la disparition à 100% soit plus directe et non progressive*/
+  100% {
+    transform: rotate(720deg);
+    /*pour qu'il tourne plus vite mais toujours pendant 3 secondes*/
+    opacity: 0;
+    z-index: -1;
+  }
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+/*H E A D E R*/
+header {
+  width: 100%;
+  text-align: center;
+}
+header .header__logo {
+  width: 50%;
+  margin: 30px 10px 10px 10px;
+  display: none;
+}
+header h1 {
+  font-family: Shrikhand, cursive;
+  margin: 20px 10px 10px 10px;
+}
+
+/*Z O N E  D E  R E C H E R C H E*/
+form {
+  text-align: center;
+  padding: 20px 0px;
+  background-color: #EAEAEA;
+  box-shadow: inset 0px 2px 4px #aaaaaa;
+  /*valeur 1= ombre verticale, valeur 2= ombre horizontale, valeur 3= flou*/
+}
+form input {
+  width: 45%;
+  background-color: #EAEAEA;
+  border: none;
+  opacity: 0.8;
+}
+form .fas {
+  font-size: 1.2em;
+  opacity: 0.8;
+  padding-right: 10px;
+}
+
+/*Z O N E  D E  R E S E R V A T I O N*/
+.location {
+  text-align: center;
+  background-color: #f7f7f7;
+  padding-bottom: 40px;
+}
+.location__titre {
+  margin-top: 50px;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 700;
+  font-size: 1.5em;
+}
+.location__phrase {
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  opacity: 0.7;
+}
+
+/*F O N C T I O N N E M E N T*/
+.step {
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 30px;
+  padding-bottom: 40px;
+}
+.step__list {
+  list-style: none;
+  /*On retire les puces numérotées par défaut pour en générer de nouveaux, plus faciles à styliser*/
+  padding-left: 0px;
+  /*On retire le padding présent sur la gauche, afin que "fontionnement" soit aligné avec les éléments de la liste*/
+  text-align: center;
+  counter-reset: li;
+  /*On initialise le compteur à 0*/
+}
+
+.step__list__item {
+  counter-increment: step-counter;
+  /*Incrémenter: augmente la valeur d'un compteur CSS, d'une valeur donnée. 
+     Ici, le compteur se nomme "étape"*/
+  width: 75%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+  /*espacement entre chaque élément de la liste*/
+  margin-right: auto;
+  margin-left: auto;
+  padding: 25px;
+  border-radius: 20px;
+  background-color: #f7f7f7;
+  box-shadow: #d1d1d1 5px 5px 10px;
+  position: relative;
+}
+.step__list__item::before {
+  content: counter(step-counter);
+  /*génère le contenu d'un élément: ici, les puces numérotée*/
+  background-color: #9356DC;
+  color: white;
+  padding: 5px 10px;
+  margin-right: 20px;
+  border-radius: 20px;
+  position: absolute;
+  left: -15px;
+}
+
+.step__list__item .fas {
+  color: gray;
+}
+
+.step__list__item.--active {
+  background-color: #f2eafb;
+}
+.step__list__item.--active .fas {
+  color: #9356DC;
+}
+
+/*R E S T A U R A N T S*/
+.restaurant {
+  background-color: #f7f7f7;
+  width: 100%;
+  padding-top: 30px;
+  padding-bottom: 40px;
+}
+.restaurant__titre {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.restaurant__carte {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  background-color: white;
+  border-radius: 20px 20px 20px 20px;
+  box-shadow: #d1d1d1 5px 5px 10px;
+  position: relative;
+}
+.restaurant__carte__img {
+  width: 100%;
+  height: 175px;
+  border-radius: 20px 20px 0px 0px;
+  object-fit: cover;
+  object-position: center;
+}
+.restaurant__carte span {
+  position: absolute;
+  /*permet de faciliter le positionnement de l'étiquette "nouveau"*/
+  top: 1%;
+  right: 1%;
+  /*positionne l'étiquette à 5% du bord de son contenant*/
+  margin: 10px;
+  padding: 7px 10px;
+  border-radius: 3px;
+  background-color: #99E2D0;
+  color: #278870;
+}
+.restaurant__carte a {
+  color: black;
+  text-decoration: none;
+}
+
+.carte__legende {
+  width: 90%;
+  padding: 5px;
+  margin: 5px auto 5px auto;
+}
+.carte__legende__titre {
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 7px;
+}
+.carte__legende__lieu {
+  margin-top: 5px;
+}
+
+/*# sourceMappingURL=main.css.map */
